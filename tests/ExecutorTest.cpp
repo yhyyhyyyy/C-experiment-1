@@ -165,4 +165,58 @@ TEST(ExecutorTest, should_return_facing_E_given_command_is_R_and_facing_is_N)
     const Pose target{2, 3, 'E'};
     ASSERT_EQ(target, executor->Query());
 }
+TEST(ExecutorTest, should_keep_pose_when_command_is_empty)
+{
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({2, 3, 'E'}));
+    ASSERT_NE(nullptr, executor.get());
+
+    executor->Execute("");
+
+    const Pose target{2, 3, 'E'};
+    ASSERT_EQ(target, executor->Query());
+}
+
+TEST(ExecutorTest, should_move_three_steps_when_commands_are_MMM)
+{
+    std::unique_ptr<Executor> executor(Executor::NewExecutor());
+    ASSERT_NE(nullptr, executor.get());
+
+    executor->Execute("MMM");
+
+    const Pose target{0, 3, 'N'};
+    ASSERT_EQ(target, executor->Query());
+}
+
+TEST(ExecutorTest, should_return_expected_pose_when_commands_are_MLMMRM)
+{
+    std::unique_ptr<Executor> executor(Executor::NewExecutor());
+    ASSERT_NE(nullptr, executor.get());
+
+    executor->Execute("MLMMRM");
+
+    const Pose target{-2, 2, 'N'};
+    ASSERT_EQ(target, executor->Query());
+}
+
+TEST(ExecutorTest, should_keep_pose_after_four_left_turns)
+{
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({2, 3, 'E'}));
+    ASSERT_NE(nullptr, executor.get());
+
+    executor->Execute("LLLL");
+
+    const Pose target{2, 3, 'E'};
+    ASSERT_EQ(target, executor->Query());
+}
+
+TEST(ExecutorTest, should_keep_pose_after_four_right_turns)
+{
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({2, 3, 'E'}));
+    ASSERT_NE(nullptr, executor.get());
+
+    executor->Execute("RRRR");
+
+    const Pose target{2, 3, 'E'};
+    ASSERT_EQ(target, executor->Query());
+}
 }  // namespace adas
