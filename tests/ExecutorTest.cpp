@@ -24,4 +24,16 @@ TEST(ExecutorTest, should_return_init_pose_when_without_command)
     const Pose target{0, 0, 'E'};
     ASSERT_EQ(target, executor->Query());
 }
+TEST(ExecutorTest, should_return_default_pose_when_without_init_and_command)
+{
+    // given
+    std::unique_ptr<Executor> executor(Executor::NewExecutor());
+    ASSERT_NE(nullptr, executor.get());
+
+    // when：不指定初始状态，也不执行指令
+
+    // then
+    const Pose target{0, 0, 'N'};
+    ASSERT_EQ(target, executor->Query());
+}
 }  // namespace adas

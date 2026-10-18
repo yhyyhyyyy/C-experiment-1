@@ -14,7 +14,7 @@ class Executor
 {
 public:
     // 返回的对象由调用者负责释放。
-    static Executor* NewExecutor(const Pose& pose) noexcept;
+    static Executor* NewExecutor(const Pose& pose = {0, 0, 'N'}) noexcept;
 
     Executor() = default;
     virtual ~Executor() = default;
