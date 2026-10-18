@@ -6,7 +6,7 @@ if not exist build (
 )
 
 cd build
-cmake -G"MinGW Makefiles" ..
+cmake -G"MinGW Makefiles" -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
 mingw32-make.exe
 
 popd
