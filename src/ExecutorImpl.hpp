@@ -18,6 +18,7 @@ public:
 
 private:
     void Move() noexcept;
+    void TurnLeft() noexcept;
 
 private:
     Pose pose{0, 0, '?'};
