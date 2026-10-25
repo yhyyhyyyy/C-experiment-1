@@ -1,5 +1,6 @@
 #include "ExecutorImpl.hpp"
 
+#include <memory>
 #include <new>
 
 namespace adas
@@ -17,7 +18,9 @@ void ExecutorImpl::Execute(const std::string& commands) noexcept
 {
     for (const auto cmd : commands) {
         if (cmd == 'M') {
-            Move();
+            std::unique_ptr<MoveCommand> cmder = std::make_unique<MoveCommand>();
+
+            cmder->DoOperate(*this);
         } else if (cmd == 'L') {
             TurnLeft();
         } else if (cmd == 'R') {
@@ -25,8 +28,6 @@ void ExecutorImpl::Execute(const std::string& commands) noexcept
         }
     }
 }
-
-
 
 void ExecutorImpl::Move() noexcept
 {

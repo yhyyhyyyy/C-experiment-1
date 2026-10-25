@@ -21,6 +21,15 @@ private:
     void TurnLeft() noexcept;
     void TurnRight() noexcept;
 
+    class MoveCommand final
+    {
+    public:
+        void DoOperate(ExecutorImpl& executor) const noexcept
+        {
+            executor.Move();
+        }
+    };
+
 private:
     Pose pose{0, 0, '?'};
 };
