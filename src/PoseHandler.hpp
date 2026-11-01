@@ -21,11 +21,14 @@ public:
     void Fast() noexcept;
     bool IsFast() const noexcept;
 
+    void Reverse() noexcept;
+
     Pose Query() const noexcept;
 
 private:
     Point position;
     Direction direction;
     bool fast{false};
+    bool reverse{false};
 };
 }  // namespace adas

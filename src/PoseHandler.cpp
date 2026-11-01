@@ -2,23 +2,38 @@
 
 namespace adas
 {
-PoseHandler::PoseHandler(const Pose& pose) noexcept : position(pose.x, pose.y), direction(pose.heading)
+PoseHandler::PoseHandler(const Pose& pose) noexcept
+    : position(pose.x, pose.y), direction(pose.heading)
 {
 }
 
 void PoseHandler::Move() noexcept
 {
-    position += direction.GetMove();
+    const Point movement = direction.GetMove();
+
+    if (reverse) {
+        position += Point{-movement.GetX(), -movement.GetY()};
+    } else {
+        position += movement;
+    }
 }
 
 void PoseHandler::TurnLeft() noexcept
 {
-    direction.TurnLeft();
+    if (reverse) {
+        direction.TurnRight();
+    } else {
+        direction.TurnLeft();
+    }
 }
 
 void PoseHandler::TurnRight() noexcept
 {
-    direction.TurnRight();
+    if (reverse) {
+        direction.TurnLeft();
+    } else {
+        direction.TurnRight();
+    }
 }
 
 void PoseHandler::Fast() noexcept
@@ -29,6 +44,11 @@ void PoseHandler::Fast() noexcept
 bool PoseHandler::IsFast() const noexcept
 {
     return fast;
+}
+
+void PoseHandler::Reverse() noexcept
+{
+    reverse = !reverse;
 }
 
 Pose PoseHandler::Query() const noexcept
