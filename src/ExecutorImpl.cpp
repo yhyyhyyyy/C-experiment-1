@@ -1,10 +1,9 @@
 #include "ExecutorImpl.hpp"
+#include "Command.hpp"
 
-#include <memory>
+#include <functional>
 #include <new>
 #include <unordered_map>
-
-#include "Command.hpp"
 
 namespace adas
 {
@@ -13,24 +12,30 @@ Executor* Executor::NewExecutor(const Pose& pose) noexcept
     return new (std::nothrow) ExecutorImpl(pose);
 }
 
-ExecutorImpl::ExecutorImpl(const Pose& pose) noexcept : poseHandler(pose)
+ExecutorImpl::ExecutorImpl(const Pose& pose) noexcept
+    : poseHandler(pose)
 {
 }
 
 void ExecutorImpl::Execute(const std::string& commands) noexcept
 {
-    std::unordered_map<char, std::unique_ptr<ICommand>> cmderMap;
+    std::unordered_map<char, std::function<void(PoseHandler&)>> cmderMap;
 
-    cmderMap.emplace('M', std::make_unique<MoveCommand>());
-    cmderMap.emplace('L', std::make_unique<TurnLeftCommand>());
-    cmderMap.emplace('R', std::make_unique<TurnRightCommand>());
-    cmderMap.emplace('F', std::make_unique<FastCommand>());
+    const MoveCommand moveCommand;
+    const TurnLeftCommand turnLeftCommand;
+    const TurnRightCommand turnRightCommand;
+    const FastCommand fastCommand;
+
+    cmderMap.emplace('M', moveCommand.operate);
+    cmderMap.emplace('L', turnLeftCommand.operate);
+    cmderMap.emplace('R', turnRightCommand.operate);
+    cmderMap.emplace('F', fastCommand.operate);
 
     for (const auto cmd : commands) {
         const auto it = cmderMap.find(cmd);
 
         if (it != cmderMap.end()) {
-            it->second->DoOperate(poseHandler);
+            it->second(poseHandler);
         }
     }
 }
