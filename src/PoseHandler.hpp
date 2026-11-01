@@ -1,6 +1,8 @@
 #pragma once
 
+#include "Direction.hpp"
 #include "Executor.hpp"
+#include "Point.hpp"
 
 namespace adas
 {
@@ -22,7 +24,8 @@ public:
     Pose Query() const noexcept;
 
 private:
-    Pose pose;
+    Point position;
+    Direction direction;
     bool fast{false};
 };
 }  // namespace adas
