@@ -7,33 +7,24 @@ PoseHandler::PoseHandler(const Pose& pose) noexcept
 {
 }
 
-void PoseHandler::Move() noexcept
+void PoseHandler::Forward() noexcept
 {
-    const Point movement = direction.GetMove();
+    position += direction.GetMove();
+}
 
-    if (reverse) {
-        position += Point{-movement.GetX(), -movement.GetY()};
-    } else {
-        position += movement;
-    }
+void PoseHandler::Backward() noexcept
+{
+    position -= direction.GetMove();
 }
 
 void PoseHandler::TurnLeft() noexcept
 {
-    if (reverse) {
-        direction.TurnRight();
-    } else {
-        direction.TurnLeft();
-    }
+    direction.TurnLeft();
 }
 
 void PoseHandler::TurnRight() noexcept
 {
-    if (reverse) {
-        direction.TurnLeft();
-    } else {
-        direction.TurnRight();
-    }
+    direction.TurnRight();
 }
 
 void PoseHandler::Fast() noexcept
@@ -49,6 +40,11 @@ bool PoseHandler::IsFast() const noexcept
 void PoseHandler::Reverse() noexcept
 {
     reverse = !reverse;
+}
+
+bool PoseHandler::IsReverse() const noexcept
+{
+    return reverse;
 }
 
 Pose PoseHandler::Query() const noexcept

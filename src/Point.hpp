@@ -19,6 +19,13 @@ public:
         return *this;
     }
 
+    Point& operator-=(const Point& other) noexcept
+    {
+        x -= other.x;
+        y -= other.y;
+        return *this;
+    }
+
     int GetX() const noexcept
     {
         return x;

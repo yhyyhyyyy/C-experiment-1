@@ -9,11 +9,15 @@ class MoveCommand final
 public:
     void operator()(PoseHandler& poseHandler) const noexcept
     {
-        if (poseHandler.IsFast()) {
-            poseHandler.Move();
-        }
+        const int steps = poseHandler.IsFast() ? 2 : 1;
 
-        poseHandler.Move();
+        for (int step = 0; step < steps; ++step) {
+            if (poseHandler.IsReverse()) {
+                poseHandler.Backward();
+            } else {
+                poseHandler.Forward();
+            }
+        }
     }
 };
 
@@ -23,10 +27,18 @@ public:
     void operator()(PoseHandler& poseHandler) const noexcept
     {
         if (poseHandler.IsFast()) {
-            poseHandler.Move();
+            if (poseHandler.IsReverse()) {
+                poseHandler.Backward();
+            } else {
+                poseHandler.Forward();
+            }
         }
 
-        poseHandler.TurnLeft();
+        if (poseHandler.IsReverse()) {
+            poseHandler.TurnRight();
+        } else {
+            poseHandler.TurnLeft();
+        }
     }
 };
 
@@ -36,10 +48,18 @@ public:
     void operator()(PoseHandler& poseHandler) const noexcept
     {
         if (poseHandler.IsFast()) {
-            poseHandler.Move();
+            if (poseHandler.IsReverse()) {
+                poseHandler.Backward();
+            } else {
+                poseHandler.Forward();
+            }
         }
 
-        poseHandler.TurnRight();
+        if (poseHandler.IsReverse()) {
+            poseHandler.TurnLeft();
+        } else {
+            poseHandler.TurnRight();
+        }
     }
 };
 
