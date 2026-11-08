@@ -13,8 +13,7 @@ Executor* Executor::NewExecutor(const Pose& pose, VehicleType vehicleType) noexc
     return new (std::nothrow) ExecutorImpl(pose, vehicleType);
 }
 
-ExecutorImpl::ExecutorImpl(const Pose& pose, VehicleType vehicleType) noexcept
-    : poseHandler(pose, vehicleType)
+ExecutorImpl::ExecutorImpl(const Pose& pose, VehicleType vehicleType) noexcept : poseHandler(pose, vehicleType)
 {
 }
 
