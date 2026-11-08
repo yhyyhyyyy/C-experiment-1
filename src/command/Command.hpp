@@ -36,6 +36,12 @@ public:
                 : ActionType::FORWARD_1_STEP_ACTION);
         }
 
+        if (poseHandler.GetVehicleType() == VehicleType::Bus) {
+            actionGroup.PushAction(poseHandler.IsReverse()
+                ? ActionType::BACKWARD_1_STEP_ACTION
+                : ActionType::FORWARD_1_STEP_ACTION);
+        }
+
         actionGroup.PushAction(poseHandler.IsReverse()
             ? ActionType::REVERSE_TURNLEFT_ACTION
             : ActionType::TURNLEFT_ACTION);
@@ -51,6 +57,12 @@ public:
         ActionGroup actionGroup;
 
         if (poseHandler.IsFast()) {
+            actionGroup.PushAction(poseHandler.IsReverse()
+                ? ActionType::BACKWARD_1_STEP_ACTION
+                : ActionType::FORWARD_1_STEP_ACTION);
+        }
+
+        if (poseHandler.GetVehicleType() == VehicleType::Bus) {
             actionGroup.PushAction(poseHandler.IsReverse()
                 ? ActionType::BACKWARD_1_STEP_ACTION
                 : ActionType::FORWARD_1_STEP_ACTION);

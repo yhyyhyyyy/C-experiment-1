@@ -10,8 +10,7 @@ namespace adas
 TEST(ExecutorBusTest, should_move_one_step_given_M)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -25,8 +24,7 @@ TEST(ExecutorBusTest, should_move_one_step_given_M)
 TEST(ExecutorBusTest, should_move_then_turn_left_given_L)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -40,8 +38,7 @@ TEST(ExecutorBusTest, should_move_then_turn_left_given_L)
 TEST(ExecutorBusTest, should_move_then_turn_right_given_R)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -55,8 +52,7 @@ TEST(ExecutorBusTest, should_move_then_turn_right_given_R)
 TEST(ExecutorBusTest, should_move_backward_given_BM)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -70,8 +66,7 @@ TEST(ExecutorBusTest, should_move_backward_given_BM)
 TEST(ExecutorBusTest, should_move_backward_then_turn_right_given_BL)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -85,8 +80,7 @@ TEST(ExecutorBusTest, should_move_backward_then_turn_right_given_BL)
 TEST(ExecutorBusTest, should_move_backward_then_turn_left_given_BR)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -100,8 +94,7 @@ TEST(ExecutorBusTest, should_move_backward_then_turn_left_given_BR)
 TEST(ExecutorBusTest, should_move_twice_given_FM)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -115,8 +108,7 @@ TEST(ExecutorBusTest, should_move_twice_given_FM)
 TEST(ExecutorBusTest, should_move_twice_then_turn_left_given_FL)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -130,8 +122,7 @@ TEST(ExecutorBusTest, should_move_twice_then_turn_left_given_FL)
 TEST(ExecutorBusTest, should_move_twice_then_turn_right_given_FR)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -145,8 +136,7 @@ TEST(ExecutorBusTest, should_move_twice_then_turn_right_given_FR)
 TEST(ExecutorBusTest, should_move_backward_twice_given_BFM)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -160,8 +150,7 @@ TEST(ExecutorBusTest, should_move_backward_twice_given_BFM)
 TEST(ExecutorBusTest, should_move_backward_twice_then_turn_right_given_BFL)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -175,8 +164,7 @@ TEST(ExecutorBusTest, should_move_backward_twice_then_turn_right_given_BFL)
 TEST(ExecutorBusTest, should_move_backward_twice_then_turn_left_given_BFR)
 {
     // given: the pose identifies the front of the bus.
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::Bus));
     ASSERT_NE(nullptr, executor.get());
 
     // when
