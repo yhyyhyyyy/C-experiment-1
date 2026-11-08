@@ -1,12 +1,16 @@
 @echo off
-pushd .
+setlocal
+pushd "%~dp0.."
+if errorlevel 1 exit /b 1
 
-if not exist build (
-     md build
+cmake -S . -B build -G "MinGW Makefiles" -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+if errorlevel 1 (
+    echo CMake configuration failed. Build stopped.
+    popd
+    exit /b 1
 )
 
-cd build
-cmake -G"MinGW Makefiles" -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
-mingw32-make.exe
-
+cmake --build build
+set "buildResult=%errorlevel%"
 popd
+exit /b %buildResult%

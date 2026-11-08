@@ -80,4 +80,26 @@ public:
         return ActionGroup({ActionType::BE_REVERSE_ACTION});
     }
 };
+
+class TurnRoundCommand final
+{
+public:
+    ActionGroup operator()(PoseHandler& poseHandler) const noexcept
+    {
+        if (poseHandler.IsReverse()) {
+            return ActionGroup{};
+        }
+
+        ActionGroup actionGroup;
+
+        if (poseHandler.IsFast()) {
+            actionGroup.PushAction(ActionType::FORWARD_1_STEP_ACTION);
+        }
+
+        actionGroup.PushAction(ActionType::TURNLEFT_ACTION);
+        actionGroup.PushAction(ActionType::FORWARD_1_STEP_ACTION);
+        actionGroup.PushAction(ActionType::TURNLEFT_ACTION);
+        return actionGroup;
+    }
+};
 }  // namespace adas

@@ -1,11 +1,14 @@
-SET(INCLUDE ${CMAKE_SOURCE_DIR}/include)
+# Collect implementation files from all internal modules.
+file(GLOB_RECURSE SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+list(REMOVE_ITEM SOURCE
+    "${CMAKE_CURRENT_SOURCE_DIR}/Main.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp"
+)
 
-FILE(GLOB SOURCE "*.cpp")
-LIST(REMOVE_ITEM SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/Main.cpp)
-LIST(REMOVE_ITEM SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
+add_library(training ${SOURCE})
+target_compile_options(training PRIVATE -Wall -Werror)
 
-ADD_COMPILE_OPTIONS("-Wall")
-ADD_COMPILE_OPTIONS("-Werror")
-ADD_LIBRARY(training ${SOURCE})
-
-TARGET_INCLUDE_DIRECTORIES(training PUBLIC "${INCLUDE}")
+target_include_directories(training
+    PUBLIC "${PROJECT_SOURCE_DIR}/include"
+    PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}"
+)
