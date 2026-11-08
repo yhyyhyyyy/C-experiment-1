@@ -10,9 +10,8 @@ public:
     ActionGroup operator()(PoseHandler& poseHandler) const noexcept
     {
         ActionGroup actionGroup;
-        const auto moveAction = poseHandler.IsReverse()
-            ? ActionType::BACKWARD_1_STEP_ACTION
-            : ActionType::FORWARD_1_STEP_ACTION;
+        const auto moveAction =
+            poseHandler.IsReverse() ? ActionType::BACKWARD_1_STEP_ACTION : ActionType::FORWARD_1_STEP_ACTION;
         const int baseSteps = poseHandler.GetVehicleType() == VehicleType::SportsCar ? 2 : 1;
         const int steps = poseHandler.IsFast() ? baseSteps * 2 : baseSteps;
 
@@ -30,9 +29,8 @@ public:
     ActionGroup operator()(PoseHandler& poseHandler) const noexcept
     {
         ActionGroup actionGroup;
-        const auto moveAction = poseHandler.IsReverse()
-            ? ActionType::BACKWARD_1_STEP_ACTION
-            : ActionType::FORWARD_1_STEP_ACTION;
+        const auto moveAction =
+            poseHandler.IsReverse() ? ActionType::BACKWARD_1_STEP_ACTION : ActionType::FORWARD_1_STEP_ACTION;
 
         if (poseHandler.IsFast()) {
             actionGroup.PushAction(moveAction);
@@ -42,9 +40,8 @@ public:
             actionGroup.PushAction(moveAction);
         }
 
-        actionGroup.PushAction(poseHandler.IsReverse()
-            ? ActionType::REVERSE_TURNLEFT_ACTION
-            : ActionType::TURNLEFT_ACTION);
+        actionGroup.PushAction(poseHandler.IsReverse() ? ActionType::REVERSE_TURNLEFT_ACTION
+                                                       : ActionType::TURNLEFT_ACTION);
 
         if (poseHandler.GetVehicleType() == VehicleType::SportsCar) {
             actionGroup.PushAction(moveAction);
@@ -60,9 +57,8 @@ public:
     ActionGroup operator()(PoseHandler& poseHandler) const noexcept
     {
         ActionGroup actionGroup;
-        const auto moveAction = poseHandler.IsReverse()
-            ? ActionType::BACKWARD_1_STEP_ACTION
-            : ActionType::FORWARD_1_STEP_ACTION;
+        const auto moveAction =
+            poseHandler.IsReverse() ? ActionType::BACKWARD_1_STEP_ACTION : ActionType::FORWARD_1_STEP_ACTION;
 
         if (poseHandler.IsFast()) {
             actionGroup.PushAction(moveAction);
@@ -72,9 +68,8 @@ public:
             actionGroup.PushAction(moveAction);
         }
 
-        actionGroup.PushAction(poseHandler.IsReverse()
-            ? ActionType::REVERSE_TURNRIGHT_ACTION
-            : ActionType::TURNRIGHT_ACTION);
+        actionGroup.PushAction(poseHandler.IsReverse() ? ActionType::REVERSE_TURNRIGHT_ACTION
+                                                       : ActionType::TURNRIGHT_ACTION);
 
         if (poseHandler.GetVehicleType() == VehicleType::SportsCar) {
             actionGroup.PushAction(moveAction);
