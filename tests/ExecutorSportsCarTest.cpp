@@ -10,8 +10,7 @@ namespace adas
 TEST(ExecutorSportsCarTest, should_move_two_steps_given_M)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -25,8 +24,7 @@ TEST(ExecutorSportsCarTest, should_move_two_steps_given_M)
 TEST(ExecutorSportsCarTest, should_turn_left_then_move_given_L)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -40,8 +38,7 @@ TEST(ExecutorSportsCarTest, should_turn_left_then_move_given_L)
 TEST(ExecutorSportsCarTest, should_turn_right_then_move_given_R)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -55,8 +52,7 @@ TEST(ExecutorSportsCarTest, should_turn_right_then_move_given_R)
 TEST(ExecutorSportsCarTest, should_move_backward_two_steps_given_BM)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -70,8 +66,7 @@ TEST(ExecutorSportsCarTest, should_move_backward_two_steps_given_BM)
 TEST(ExecutorSportsCarTest, should_turn_right_then_move_backward_given_BL)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -85,8 +80,7 @@ TEST(ExecutorSportsCarTest, should_turn_right_then_move_backward_given_BL)
 TEST(ExecutorSportsCarTest, should_turn_left_then_move_backward_given_BR)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -100,8 +94,7 @@ TEST(ExecutorSportsCarTest, should_turn_left_then_move_backward_given_BR)
 TEST(ExecutorSportsCarTest, should_move_four_steps_given_FM)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -115,8 +108,7 @@ TEST(ExecutorSportsCarTest, should_move_four_steps_given_FM)
 TEST(ExecutorSportsCarTest, should_move_then_turn_left_then_move_given_FL)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -130,8 +122,7 @@ TEST(ExecutorSportsCarTest, should_move_then_turn_left_then_move_given_FL)
 TEST(ExecutorSportsCarTest, should_move_then_turn_right_then_move_given_FR)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -145,8 +136,7 @@ TEST(ExecutorSportsCarTest, should_move_then_turn_right_then_move_given_FR)
 TEST(ExecutorSportsCarTest, should_move_backward_four_steps_given_BFM)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -160,8 +150,7 @@ TEST(ExecutorSportsCarTest, should_move_backward_four_steps_given_BFM)
 TEST(ExecutorSportsCarTest, should_move_backward_then_turn_right_then_move_backward_given_BFL)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
@@ -175,8 +164,7 @@ TEST(ExecutorSportsCarTest, should_move_backward_then_turn_right_then_move_backw
 TEST(ExecutorSportsCarTest, should_move_backward_then_turn_left_then_move_backward_given_BFR)
 {
     // given
-    std::unique_ptr<Executor> executor(
-        Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
+    std::unique_ptr<Executor> executor(Executor::NewExecutor({0, 0, 'E'}, VehicleType::SportsCar));
     ASSERT_NE(nullptr, executor.get());
 
     // when
