@@ -2,8 +2,8 @@
 
 namespace adas
 {
-PoseHandler::PoseHandler(const Pose& pose) noexcept
-    : position(pose.x, pose.y), direction(pose.heading)
+PoseHandler::PoseHandler(const Pose& pose, VehicleType vehicleType) noexcept
+    : position(pose.x, pose.y), direction(pose.heading), vehicleType(vehicleType)
 {
 }
 
@@ -45,6 +45,11 @@ void PoseHandler::Reverse() noexcept
 bool PoseHandler::IsReverse() const noexcept
 {
     return reverse;
+}
+
+VehicleType PoseHandler::GetVehicleType() const noexcept
+{
+    return vehicleType;
 }
 
 Pose PoseHandler::Query() const noexcept

@@ -8,7 +8,8 @@ namespace adas
 class ExecutorImpl final : public Executor
 {
 public:
-    explicit ExecutorImpl(const Pose& pose) noexcept;
+    explicit ExecutorImpl(const Pose& pose,
+                          VehicleType vehicleType = VehicleType::Normal) noexcept;
     ~ExecutorImpl() override = default;
 
     ExecutorImpl(const ExecutorImpl&) = delete;

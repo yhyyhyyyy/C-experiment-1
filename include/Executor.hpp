@@ -1,5 +1,7 @@
 #pragma once
 
+#include "VehicleType.hpp"
+
 #include <string>
 
 namespace adas
@@ -14,7 +16,8 @@ class Executor
 {
 public:
     // 返回的对象由调用者负责释放。
-    static Executor* NewExecutor(const Pose& pose = {0, 0, 'N'}) noexcept;
+    static Executor* NewExecutor(const Pose& pose = {0, 0, 'N'},
+                                 VehicleType vehicleType = VehicleType::Normal) noexcept;
 
     Executor() = default;
     virtual ~Executor() = default;

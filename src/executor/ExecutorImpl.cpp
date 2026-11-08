@@ -8,12 +8,13 @@
 
 namespace adas
 {
-Executor* Executor::NewExecutor(const Pose& pose) noexcept
+Executor* Executor::NewExecutor(const Pose& pose, VehicleType vehicleType) noexcept
 {
-    return new (std::nothrow) ExecutorImpl(pose);
+    return new (std::nothrow) ExecutorImpl(pose, vehicleType);
 }
 
-ExecutorImpl::ExecutorImpl(const Pose& pose) noexcept : poseHandler(pose)
+ExecutorImpl::ExecutorImpl(const Pose& pose, VehicleType vehicleType) noexcept
+    : poseHandler(pose, vehicleType)
 {
 }
 

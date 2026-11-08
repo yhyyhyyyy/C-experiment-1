@@ -9,7 +9,8 @@ namespace adas
 class PoseHandler final
 {
 public:
-    explicit PoseHandler(const Pose& pose) noexcept;
+    explicit PoseHandler(const Pose& pose,
+                         VehicleType vehicleType = VehicleType::Normal) noexcept;
 
     PoseHandler(const PoseHandler&) = delete;
     PoseHandler& operator=(const PoseHandler&) = delete;
@@ -25,11 +26,14 @@ public:
     void Reverse() noexcept;
     bool IsReverse() const noexcept;
 
+    VehicleType GetVehicleType() const noexcept;
+
     Pose Query() const noexcept;
 
 private:
     Point position;
     Direction direction;
+    const VehicleType vehicleType;
     bool fast{false};
     bool reverse{false};
 };
